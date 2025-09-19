@@ -8,6 +8,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+const authRouter = require('./routes/auth');
+app.use('/auth', authRouter)
 
 const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/ecommerce';
 mongoose.connect(uri)
